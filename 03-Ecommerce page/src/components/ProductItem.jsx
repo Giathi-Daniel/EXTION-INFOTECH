@@ -1,26 +1,23 @@
-// src/components/ProductItem.js
 import React from 'react';
-import IconButton from '@mui/material/IconButton';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import Button from '@mui/material/Button';
+import { IconButton } from '@mui/material';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
 const ProductItem = ({ image, name }) => {
   return (
-    <div className="max-w-xs bg-white rounded-lg shadow-md overflow-hidden m-4">
-      <img className="w-full h-48 object-cover" src={image} alt={name} />
-      <div className="p-4">
-        <h2 className="text-lg font-semibold mb-2">{name}</h2>
-        <div className="flex justify-between items-center">
-          <IconButton aria-label="add to wishlist">
-            <FavoriteBorderIcon />
-          </IconButton>
-          <Button variant="contained" color="primary">
-            Add to Cart
-          </Button>
-        </div>
+    <div className="flex flex-col items-center p-4 bg-white rounded-lg shadow-md mx-4">
+      <img src={image} alt={name} className="w-32 h-32 object-cover mb-4" />
+      <h3 className="text-lg font-semibold mb-2">{name}</h3>
+      <div className="flex space-x-2">
+        <IconButton aria-label="add to wishlist">
+          <FavoriteIcon />
+        </IconButton>
+        <IconButton aria-label="add to cart">
+          <AddShoppingCartIcon />
+        </IconButton>
       </div>
     </div>
   );
-}
+};
 
 export default ProductItem;

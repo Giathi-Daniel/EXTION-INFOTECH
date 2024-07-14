@@ -1,8 +1,7 @@
-// src/components/Blog.js
 import React from 'react';
 import Comments from './Comments';
 
-const Comment = [
+const blogPosts = [
   {
     id: 1,
     title: 'Exploring the Future of E-commerce',
@@ -28,12 +27,17 @@ const Blog = () => {
     <div className="py-12 bg-gray-100">
       <div className="container mx-auto">
         <h2 className="text-3xl font-bold text-center mb-8">Blog</h2>
-        {Comments .map(post => (
-          <Comment key={post.id} title={post.title} description={post.description} comments={post.comments} />
+        {blogPosts.map(post => (
+          <Comments 
+            key={post.id} 
+            title={post.title} 
+            description={post.description} 
+            comments={post.comments} 
+          />
         ))}
       </div>
     </div>
   );
 };
 
-export default Comment;
+export default Blog;
