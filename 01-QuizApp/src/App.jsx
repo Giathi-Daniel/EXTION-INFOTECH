@@ -1,9 +1,9 @@
 import { Box, CssBaseline } from '@mui/material';
 
-import { AppState } from '../providers/AppState.jsx';
-import { QuizList } from './QuizList.jsx';
-import { QuizHeader } from './QuizHeader.jsx';
-import { Quiz } from './Quiz.jsx';
+import { AppState } from './providers/AppState';
+import { QuizList } from './QuizList';
+import { QuizHeader } from './QuizHeader';
+import { Quiz } from './Quiz';
 
 function App() {
 
