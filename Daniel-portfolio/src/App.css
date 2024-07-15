@@ -36,8 +36,7 @@
 
 .rotate-img {
   padding: 8px;
-  transform: rotate(-17deg) translateX(5px);
-  /* border: 3px solid red; */
+  transform: rotate(-17deg) translateX(5px)
 }
 
 .my-name {
