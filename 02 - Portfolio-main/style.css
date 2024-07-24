@@ -204,9 +204,9 @@ header {
 }
 
 .pic img {
-  inline-size: 20rem;
+  inline-size: auto;
   object-fit: cover;
-  block-size: 25rem;
+  block-size: auto;
 }
 
 
@@ -621,9 +621,9 @@ footer {
     inline-size: 100%;
   }
 
-  .top-button {
+/*   .top-button {
     display: block;
-  }
+  } */
 
   .menuBtns {
     display: block;
