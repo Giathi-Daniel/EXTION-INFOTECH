@@ -1,0 +1,674 @@
+:root {
+  --container-width-lg: 90%;
+  --container-width-md: 94%;
+  --container-width-sm: 96%;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Jost", sans-serif;
+  list-style: none;
+  text-decoration: none;
+  scroll-behavior: smooth;
+}
+
+.container {
+  inline-size: var(--container-width-lg);
+  margin: 0 auto;
+}
+
+body {
+  background-color: #18202D;
+  font-size: 16px;
+  line-height: 1.4em;
+  overflow-x: hidden;
+}
+
+.star {
+  position: absolute;
+  border-radius: 50%;
+  background: white;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.7;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.7;
+  }
+}
+
+
+.star:nth-child(odd) {
+  animation: twinkle 1.5s infinite;
+}
+
+.star:nth-child(even) {
+  animation: twinkle 2s infinite;
+}
+
+
+.star:nth-child(odd) {
+  animation-delay: calc(-1.5s * var(--star-index));
+}
+
+.star:nth-child(even) {
+  animation-delay: calc(-2s * var(--star-index));
+}
+
+.stars-container {
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  inline-size: 100vw;
+  block-size: 100vh;
+  background: transparent;
+  z-index: -1;
+  pointer-events: none;
+}
+
+img {
+  inline-size: 100%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+section {
+  font-family: Arial, sans-serif;
+  color: #fff;
+  padding: 5rem 0;
+}
+
+/* ********************************** Navigation Bar CSS ************************************************* */
+
+header {
+  inline-size: 100%;
+  block-size: 4rem;
+  z-index: 1000;
+  background: transparent;
+  backdrop-filter: blur(12px);
+  padding: 10px 5%;
+  transition: .3s;
+  border-block-end: 1px solid #fff;
+  position: fixed;
+  inset-block-start: 0;
+}
+
+.header__container {
+  display: flex;
+  inline-size: 100%;
+  block-size: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.2rem;
+  color: #00b3ff;
+}
+
+.nav {
+  display: flex;
+  gap: 2.9rem;
+}
+
+.nav a {
+  font-size: .9rem;
+  font-weight: 200;
+  color: #fff;
+  transition: ease .4s;
+}
+
+.nav a:hover {
+  color: #0097d7;
+  transition: ease .4s;
+}
+
+
+.top-button {
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid;
+  letter-spacing: 1px;
+  transition: ease .5s;
+  inline-size: auto;
+  block-size: 45px;
+  gap: 15px;
+  border-radius: 1rem;
+  background: #000;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.top-button:hover {
+  transform: scale(1.1);
+  background-color: #0097d7;
+  transition: ease .5s;
+}
+
+.top-button ion-icon {
+  font-size: 1.5rem;
+  border-radius: 50%;
+  background: #fff;
+  color: #000;
+
+}
+
+.menuBtns ion-icon {
+  font-size: 1.6rem;
+  color: #fff;
+  cursor: pointer;
+  transition: all 400ms ease;
+}
+
+.menuBtns ion-icon:hover {
+  color: #0097d7;
+}
+
+.menuBtns {
+  display: none;
+}
+
+#menuClose {
+  display: none;
+}
+
+/* *************************************** Home CSS ********************************************** */
+.home-content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  place-items: center;
+  gap: 13rem;
+}
+
+.pic {
+  border-radius: 300px 300px 21px 21px;
+  border: 5px solid #0097d7;
+  margin-inline-end: auto;
+  margin-block-start: 2rem;
+  background: #090d14;
+}
+
+.pic img {
+  inline-size: 20rem;
+  object-fit: cover;
+  block-size: 25rem;
+}
+
+
+@keyframes picToLeft {
+  from {
+    inset-block-start: 30px;
+    inset-inline-start: -850px;
+  }
+
+  to {
+    inset-block-start: 30px;
+    inset-inline-start: -400px;
+  }
+
+}
+
+.pic:hover {
+  transition: all .4s;
+  box-shadow: 0px 0px 22px 2px #0097d7;
+}
+
+.hello {
+  color: #0097d7;
+  font-family: Josefin Sans;
+  font-size: .9rem;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.2rem;
+  margin-block-start: 10px;
+}
+
+.user_name {
+  inline-size: 694px !important;
+  font-family: DM Sans !important;
+  line-height: 35px !important;
+  color: #00b3ff;
+  transition: all 0.5s;
+}
+
+.user_name:hover {
+  text-shadow: 2px 2px 5px white;
+}
+
+.name {
+  font-family: DM Sans;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.2rem;
+  white-space: nowrap;
+  color: #0097d7;
+  margin-block-start: 1.2rem;
+  margin-block-end: 1rem;
+}
+
+.name {
+  animation: role 2s steps(30, jump-none) 0.5s infinite alternate;
+}
+
+@keyframes role {
+  0% {
+    inline-size: 0%;
+  }
+
+  100% {
+    inline-size: 100%;
+  }
+}
+
+.description {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 18px;
+  inline-size: 80%;
+  line-height: 30px;
+  text-align: start;
+  color: #c5c4c4;
+  font-size: .9rem;
+}
+
+.socials {
+  display: flex;
+  gap: 1rem;
+  margin-block-start: 20px;
+  align-items: center;
+  justify-content: start;
+}
+
+.socials ion-icon {
+  font-size: 2.5rem;
+  background: transparent;
+  color: #000;
+}
+
+.socials ion-icon:hover {
+  transform: scale(1.1);
+  transition: all 400ms ease;
+}
+
+@keyframes scrollAnimate {
+  from {
+    opacity: 0;
+    scale: 0.5;
+  }
+
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+.scrollAnimate {
+  animation: scrollAnimate linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+
+/*************************************** Experience and Education CSS ************************************** */
+.title__header,
+.title {
+  color: #0097d7;
+  font-size: 1.2rem;
+  font-weight: 900;
+  text-align: center;
+}
+
+.title {
+  padding-block-end: .5rem;
+}
+
+.experience__about {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 4rem;
+  padding-block-start: 2rem;
+}
+
+.experience__content p {
+  font-size: .8rem;
+  block-size: auto;
+  line-height: 1.5rem;
+}
+
+.experience__profession {
+  inline-size: 100%;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+
+.professional__skillset {
+  display: grid;
+  gap: 1.3rem;
+  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+}
+
+.professional__skillset .skill {
+  background: transparent;
+  border: 1px solid #0097d7;
+  border-radius: .2rem;
+  padding: .4rem .5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: fit-content;
+  aspect-ratio: 1/1;
+}
+
+.hobbies {
+  text-align: start;
+}
+
+.professional__skillset .skill ion-icon,
+.professional__skillset .skill svg {
+  font-size: 2rem;
+  color: #0097d7;
+}
+
+.coding {
+  margin-block-start: 1rem;
+  inline-size: 100%;
+}
+
+.coding img {
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+/* **************************************Projects CSS ****************************************** */
+.projects__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-block-start: 3rem;
+}
+
+.project {
+  background: transparent;
+  border-radius: .4rem;
+  inline-size: 100%;
+  border: 1px solid #0097d7;
+  box-shadow: 0 0 .1rem #00b3ff;
+  transition: all 300ms ease;
+}
+
+.project:hover {
+  box-shadow: 0 0 .2rem #00b3ff;
+}
+
+.project__image img {
+  inline-size: 100%;
+  border-start-start-radius: .4rem;
+  border-start-end-radius: .4rem;
+}
+
+.project__info {
+  padding: 1rem;
+  max-inline-size: 100%;
+  margin-block-start: -.4rem;
+}
+
+.project__info h2 {
+  font-size: 1rem;
+}
+
+.project__info p {
+  margin-block-start: 1rem;
+  font-size: .7rem;
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-block-start: 1rem;
+}
+
+.links a {
+  font-size: 1rem;
+  border: 2px solid #0097d7;
+  padding: .4rem .9rem;
+  border-radius: .4rem;
+  color: #fff;
+  transition: all 400ms ease;
+}
+
+.links a:hover {
+  transform: scale(1.1);
+}
+
+/* ****************************************** Skills CSS ********************************************* */
+
+#skills {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 120px 0px 0px 0px;
+  text-align: center;
+}
+
+#skills .get-work {
+  inline-size: 1300px;
+}
+
+.skill-img {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(200px, 0.15fr));
+  grid-gap: 50px 0px;
+  margin: 50px auto 0px auto;
+}
+
+.skill-img img {
+  transform-style: preserve-3d;
+  transform: rotate3d(1, 1, 1, 30deg);
+  filter: drop-shadow(0px 0px 0px #0097d7);
+  transition: all 0.8s;
+}
+
+.skill-img img:hover {
+  transition: all 0.2s;
+  filter: drop-shadow(0px 0px 40px #0097d7);
+}
+
+/* ****************************** Creative Services ****************************************** */
+.service__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+  margin-block-start: 1.6rem;
+}
+
+.service {
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+  padding: 2rem;
+  border-radius: 20px;
+  border: 4px solid black;
+  inline-size: 100%;
+}
+
+.service ion-icon {
+  background: #00b3ff;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 1rem;
+  padding: .5rem;
+}
+
+.service a {
+  color: #fff;
+  transition: all 400ms ease;
+}
+
+.service a:hover {
+  transform: scale(1.1);
+  color: #0097d7;
+}
+
+/* *************************************** Footer CSS ******************************************* */
+footer {
+  inline-size: 100%;
+  background: #192436;
+  padding-block: .7rem;
+  color: #fff;
+  margin-block-start: 3rem;
+}
+
+.footer__container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  place-items: center;
+  gap: 5rem;
+  padding-inline-start: 5%;
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.socials ion-icon {
+  font-size: 1.7rem;
+  margin-block-start: -3rem;
+}
+
+
+/* ********************* MEDIA QURIES ********************* */
+
+@media screen and (max-width: 1240px) {
+  .container {
+    inline-size: var(--container-width-md);
+  }
+
+  header {
+    padding: 0;
+  }
+
+  .home-content {
+    gap: 4em;
+  }
+
+  .pic img {
+    inline-size: 18rem;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .top-button {
+    display: none;
+  }
+
+}
+
+@media screen and (max-width: 745px) {
+  .home-content {
+    grid-template-columns: 1fr;
+  }
+
+  .pic {
+    margin-inline-start: 10rem;
+  }
+
+  .description {
+    inline-size: 100%;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .nav.active {
+    display: block;
+    margin-block-start: 15.2rem;
+    text-align: center;
+    inline-size: 100%;
+    max-inline-size: 100vw;
+    margin-inline-start: -50rem;
+    margin-inline-end: 0;
+    background: #18202D;
+    backdrop-filter: blur(12rem);
+    border-block-end: 1px solid #fff;
+    padding-block: 1rem;
+    position: fixed;
+    inset-inline-end: 0;
+  }
+
+  .nav.active li {
+    padding-block-end: 1rem;
+  }
+
+  .logo {
+    inline-size: 100%;
+  }
+
+  .top-button {
+    display: block;
+  }
+
+  .menuBtns {
+    display: block;
+  }
+
+  .footer__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+@media screen and (max-width: 640px) {
+  .container {
+    inline-size: var(--container-width-sm);
+  }
+
+  .footer__container {
+    grid-template-columns: 1fr;
+    place-items: start;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .pic {
+    margin-inline-start: 5rem;
+  }
+
+  .user_name {
+    inline-size: 10rem;
+  }
+
+  .name {
+    font-size: 1.3rem;
+  }
+
+  .text {
+    inline-size: 95%;
+  }
+
+  .description {
+    inline-size: 50%;
+  }
+
+  .pic img {
+    inline-size: 10rem;
+    block-size: 15rem;
+  }
+}
