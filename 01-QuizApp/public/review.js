@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     document.getElementById('try-again').addEventListener('click', () => {
-        localStorage.removeItem('quizResults'); 
+        localStorage.removeItem('quizResults');
         window.location.href = 'index.html'; 
-    });
+    })
 });
