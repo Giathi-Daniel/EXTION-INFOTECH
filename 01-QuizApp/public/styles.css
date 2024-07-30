@@ -1,0 +1,58 @@
+body {
+    background-image: url('background-image.jpg');
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    block-size: 100vh;
+}
+
+.quiz-container, .review-container {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    inline-size: 60%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.question, .result {
+    margin-block-end: 20px;
+}
+
+.question img {
+    max-inline-size: 100%;
+    block-size: auto;
+}
+
+input[type="radio"]:checked + label {
+    background-color: lightgreen;
+}
+
+#profile img {
+    inline-size: 100px;
+    block-size: 100px;
+    border-radius: 50%;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
