@@ -1,7 +1,6 @@
 :root {
-  --container-width-lg: 90%;
-  --container-width-md: 94%;
-  --container-width-sm: 96%;
+  --container-width-lg: 87%;
+  --container-width-md: 90%;
 }
 
 * {
@@ -21,7 +20,7 @@
 
 body {
   background-color: #18202D;
-  font-size: 16px;
+  font-size: .8rem;
   line-height: 1.4em;
   overflow-x: hidden;
 }
@@ -107,8 +106,6 @@ header {
 
 .header__container {
   display: flex;
-  inline-size: 100%;
-  block-size: 100%;
   justify-content: space-between;
   align-items: center;
 }
@@ -150,8 +147,12 @@ header {
   border-radius: 1rem;
   background: #000;
   color: #fff;
-  font-size: 15px;
+  font-size: .8rem;
   font-weight: 400;
+}
+
+#download {
+  display: none;
 }
 
 .top-button:hover {
@@ -188,25 +189,27 @@ header {
 }
 
 /* *************************************** Home CSS ********************************************** */
-.home-content {
+.home__content {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  place-items: center;
-  gap: 13rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center
 }
 
 .pic {
   border-radius: 300px 300px 21px 21px;
   border: 5px solid #0097d7;
-  margin-inline-end: auto;
-  margin-block-start: 2rem;
   background: #090d14;
+  inline-size: 70%;
+  display: flex;
+  justify-content: center;
+  block-size: auto;
+  margin-block-start: -3rem;
 }
 
 .pic img {
   inline-size: auto;
   object-fit: cover;
-  block-size: auto;
 }
 
 
@@ -239,9 +242,9 @@ header {
 }
 
 .user_name {
-  inline-size: 694px !important;
+  max-inline-size: 100%;
   font-family: DM Sans !important;
-  line-height: 35px !important;
+  line-height: 35px;
   color: #00b3ff;
   transition: all 0.5s;
 }
@@ -252,7 +255,7 @@ header {
 
 .name {
   font-family: DM Sans;
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   font-weight: 500;
   line-height: 1.2rem;
   white-space: nowrap;
@@ -277,12 +280,10 @@ header {
 
 .description {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: 18px;
-  inline-size: 80%;
+  font-size: .9rem;
   line-height: 30px;
   text-align: start;
   color: #c5c4c4;
-  font-size: .9rem;
 }
 
 .socials {
@@ -290,12 +291,10 @@ header {
   gap: 1rem;
   margin-block-start: 20px;
   align-items: center;
-  justify-content: start;
 }
 
 .socials ion-icon {
   font-size: 2.5rem;
-  background: transparent;
   color: #000;
 }
 
@@ -564,13 +563,15 @@ footer {
     padding: 0;
   }
 
-  .home-content {
-    gap: 4em;
+  .pic {
+    max-inline-size: 100%;
+    block-size: 100%;
   }
 
-  .pic img {
-    inline-size: 18rem;
+  .header__container {
+    padding-block: 1rem;
   }
+
 }
 
 @media screen and (max-width: 990px) {
@@ -578,20 +579,43 @@ footer {
     display: none;
   }
 
+  .home__content {
+    gap: 0;
+  }
 }
 
 @media screen and (max-width: 745px) {
-  .home-content {
+  #download {
+    display: block;
+    inline-size: 56%;
+    margin-block-start: 1rem;
+    margin-inline: auto;
+    position: relative;
+    padding-inline: 2rem;
+  }
+
+  #download ion-icon {
+    position: absolute;
+    inset-inline-end: 1rem;
+    font-size: 1.2rem;
+  }
+
+  .home__content {
     grid-template-columns: 1fr;
   }
 
-  .pic {
-    margin-inline-start: 10rem;
+  /* .description {
+    max-inline-size: 70%;
   }
 
-  .description {
-    inline-size: 100%;
+  .pic {
+    max-inline-size: 60%;
+    margin-inline-start: 3rem;
   }
+
+  .text {
+    margin-inline-start: 3rem;
+  } */
 
   .nav {
     display: none;
@@ -621,10 +645,6 @@ footer {
     inline-size: 100%;
   }
 
-/*   .top-button {
-    display: block;
-  } */
-
   .menuBtns {
     display: block;
   }
@@ -636,39 +656,39 @@ footer {
 
 
 @media screen and (max-width: 640px) {
-  .container {
-    inline-size: var(--container-width-sm);
-  }
 
   .footer__container {
     grid-template-columns: 1fr;
-    place-items: start;
   }
 }
 
 @media screen and (max-width: 500px) {
-  .pic {
-    margin-inline-start: 5rem;
-  }
-
-  .user_name {
-    inline-size: 10rem;
-  }
-
-  .name {
-    font-size: 1.3rem;
-  }
-
   .text {
-    inline-size: 95%;
-  }
-
-  .description {
+    margin-inline-start: 1rem;
     inline-size: 50%;
   }
 
-  .pic img {
-    inline-size: 10rem;
-    block-size: 15rem;
+  .name {
+    font-size: 1rem;
+  }
+
+  .description {
+    inline-size: 130%;
+  }
+
+  #download {
+    margin-inline-start: 2rem;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .description {
+    inline-size: 160%;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .description {
+    inline-size: 140%;
   }
 }
