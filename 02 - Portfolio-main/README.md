@@ -6,7 +6,7 @@ A portfolio built in HTML, CSS and JS
 
 ## Demo
 
-[Live Preview](https://www.github.com)
+[Live Preview]([https://www.github.com](https://my-portfolio-9iacst3ul-giathi-daniels-projects.vercel.app/))
 
 ## Contributing
 
