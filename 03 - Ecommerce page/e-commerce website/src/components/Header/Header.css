@@ -111,21 +111,6 @@ header {
     }
 }
 
-/* @media screen and (max-width: 980px) {
-
-    .nav__links {
-        display: none;
-    }
-
-    .nav__menus .login {
-        display: none;
-    }
-
-    .mobile__nav {
-        display: block;
-    }
-} */
-
 @media screen and (max-width: 830px) {
 
     .nav__links {
