@@ -1,0 +1,142 @@
+header {
+    background: #fff;
+    inset-block-start: 0;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0..7);
+    z-index: 999999;
+    position: sticky;
+    block-size: 5rem;
+    inline-size: 100%;
+    inset-inline-start: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-inline: auto;
+    font-size: 1.1rem;
+}
+
+.header__container {
+    display: flex;
+    block-size: 100%;
+    justify-content: space-between;
+    align-items: center;
+    inline-size: 100%;
+    padding: 0 5rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: orange;
+}
+
+.nav__links,
+.nav__menus {
+    cursor: pointer;
+    display: flex;
+    gap: 3rem;
+    transition: var(--transition);
+}
+
+.nav__menus li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .5rem;
+}
+
+.nav__menus .menus {
+    font-weight: bold;
+}
+
+.nav__links li:hover {
+    font-weight: bold;
+}
+
+.logo {
+    cursor: pointer;
+}
+
+.mobile__nav {
+    display: none;
+    position: relative;
+}
+
+#menuOpen,
+#menuClose {
+    cursor: pointer;
+    font-size: 1.7rem;
+}
+
+.mobile__menu {
+    position: fixed;
+    inset-block-start: 5rem;
+    inset-inline-end: -100%;
+    inline-size: 250px;
+    block-size: auto;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease;
+    z-index: 1000;
+}
+
+.mobile__menu.open {
+    inset-inline-end: 0;
+}
+
+.mobile__menu ul li {
+    padding: 1rem;
+    border-block-end: 1px solid #ddd;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.mobile__menu ul li:hover active {
+    background: #f0f0f0;
+}
+
+@media screen and (max-width: 1110px) {
+    .header__container {
+        padding: 0 5rem;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .header__container {
+        padding: 0 2rem;
+    }
+
+    .nav__links,
+    .nav__menus {
+        gap: 2rem;
+    }
+}
+
+/* @media screen and (max-width: 980px) {
+
+    .nav__links {
+        display: none;
+    }
+
+    .nav__menus .login {
+        display: none;
+    }
+
+    .mobile__nav {
+        display: block;
+    }
+} */
+
+@media screen and (max-width: 830px) {
+
+    .nav__links {
+        display: none;
+    }
+
+    .nav__menus .login {
+        display: none;
+    }
+
+    .mobile__nav {
+        display: block;
+    }
+}
