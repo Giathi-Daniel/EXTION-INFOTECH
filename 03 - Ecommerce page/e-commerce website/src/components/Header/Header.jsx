@@ -23,7 +23,7 @@ const Header = () => {
             </ul>
             <div className='logo' onClick={() => navigate('/')}>BestShop</div>
             <div className='nav__menus'>
-                <li onClick={() => navigate("/sign-in")} className='login'><FaUser className='menus' /> Login</li>
+                <li onClick={() => navigate("/register")} className='login'><FaUser className='menus' /> Log in/Sign up</li>
                 <li onClick={() => navigate("/cart")}><IoCart className='menus' /> Cart</li>
             </div>
             <div className='mobile__nav'>
