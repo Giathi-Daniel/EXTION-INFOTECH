@@ -4,19 +4,21 @@
     padding-inline: 5rem;
 }
 
+
+/* ============ FEATURES ========== */
 .home__features {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     border: 1px solid #555;
-    margin: 1rem 0 2rem 0;
-    padding: .7rem;
-    block-size: 5rem;
+    margin: 0 0 2rem 0;
+    /* padding: 0 3rem; */
+    block-size: 6rem;
+    margin-block-end: 6rem;
+    place-items: center;
 }
 
 .feature {
     display: flex;
-    padding-inline: 2rem;
 }
 
 img {
@@ -43,12 +45,15 @@ h2 {
     padding-block-end: .6rem;
 }
 
+
+/* ============ PRODUCTS ========== */
 .categories__container {
-    margin-block-start: 1.5rem;
+    margin-block: 2rem;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     place-items: center;
     gap: 1.5rem;
+
 }
 
 .category {
@@ -76,3 +81,84 @@ h2 {
 }
 
 /* ============ PRODUCTS ========== */
+#products,
+#collection,
+.recommend {
+    margin-block: 4rem;
+}
+
+.products__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-block: 1.6rem;
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+}
+
+.product img {
+    inline-size: 100%;
+}
+
+.product__desc {
+    gap: 1rem;
+    text-align: center;
+}
+
+.price__listing {
+    display: flex;
+    justify-content: center;
+    margin-block-end: 1rem;
+}
+
+.price {
+    color: #06E492;
+}
+
+.price__listing {
+    color: #a7a0a0;
+}
+
+button {
+    border-radius: 1.2rem;
+    padding: .7rem 1rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all 400ms ease;
+    font-size: .9rem;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background: #f87427;
+    color: #fff;
+}
+
+/* ============ RECOMMEND ========== */
+.recommend {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    place-items: center;
+    gap: 2rem;
+}
+
+.recommend>div {
+    display: flex;
+    border-radius: .3rem;
+    background: #fdc378;
+    inline-size: 100%;
+    padding: 1.5rem 2rem;
+    justify-content: space-between;
+}
+
+.text p,
+.text button {
+    margin-block-start: .3rem;
+}
+
+/* ============ Collection ========== */
