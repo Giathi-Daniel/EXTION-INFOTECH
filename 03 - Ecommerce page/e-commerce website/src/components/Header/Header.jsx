@@ -30,14 +30,25 @@ const Header = () => {
     };
   }, [isMobileMenuOpen]);
 
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    console.log(`Scrolling to section: ${sectionId}`);
+    if (element) {
+      console.log(`Element found: ${element}`);
+      element.scrollIntoView({ behavior: "smooth" });
+    } else {
+      console.error(`Element with id "${sectionId}" not found.`);
+    }
+  };
+
   return (
     <header>
       <div className="header__container">
         <ul className="nav__links">
           <li onClick={() => navigate("/")}>Home</li>
-          <li onClick={() => navigate("/features")}>Features</li>
-          <li onClick={() => navigate("/prodcuts")}>Our Products</li>
-          <li onClick={() => navigate("/collection")}>Collection</li>
+          <li onClick={() => scrollToSection("features")}>Features</li>
+          <li onClick={() => scrollToSection("products")}>Our Products</li>
+          <li onClick={() => scrollToSection("collection")}>Collection</li>
         </ul>
         <div className="logo" onClick={() => navigate("/")}>
           BestShop
@@ -72,7 +83,7 @@ const Header = () => {
             </li>
             <li
               onClick={() => {
-                navigate("/features");
+                scrollToSection("features");
                 setMobileMenuOpen(false);
               }}
             >
@@ -80,7 +91,7 @@ const Header = () => {
             </li>
             <li
               onClick={() => {
-                navigate("/products");
+                scrollToSection("products");
                 setMobileMenuOpen(false);
               }}
             >
@@ -88,7 +99,7 @@ const Header = () => {
             </li>
             <li
               onClick={() => {
-                navigate("/collection");
+                scrollToSection("collection");
                 setMobileMenuOpen(false);
               }}
             >
