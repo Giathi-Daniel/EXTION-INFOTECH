@@ -33,7 +33,7 @@ header {
 .nav__menus {
     cursor: pointer;
     display: flex;
-    gap: 3rem;
+    gap: 1.4rem;
     transition: var(--transition);
 }
 
@@ -112,7 +112,6 @@ header {
 }
 
 @media screen and (max-width: 830px) {
-
     .nav__links {
         display: none;
     }
