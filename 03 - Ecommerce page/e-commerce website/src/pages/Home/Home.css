@@ -11,7 +11,6 @@
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     border: 1px solid #555;
     margin: 0 0 2rem 0;
-    /* padding: 0 3rem; */
     block-size: 6rem;
     margin-block-end: 6rem;
     place-items: center;
@@ -46,7 +45,7 @@ h2 {
 }
 
 
-/* ============ PRODUCTS ========== */
+/* ============ CATEGORIES ========== */
 .categories__container {
     margin-block: 2rem;
     display: grid;
@@ -90,18 +89,47 @@ h2 {
 .products__container {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    margin-block: 1.6rem;
-}
-
-.product {
-    display: flex;
-    flex-direction: column;
-}
-
-.product img {
+    margin: 1.6rem 0;
+    overflow: hidden;
     inline-size: 100%;
+    position: relative;
+}
+
+.slick-slide img {
+    block-size: 10rem;
+    object-fit: contain;
+}
+
+.slider-container {
+    inline-size: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.slider-button {
+    position: absolute;
+    inset-block-start: 30%;
+    transform: translateY(-50%, 0);
+    background-color: rgba(0, 0, 0, 1);
+    color: #fff;
+    border: none;
+    padding: 1rem;
+    z-index: 10;
+    cursor: pointer;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    block-size: 16%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-button.prev {
+    inset-inline-start: auto;
+}
+
+.slider-button.next {
+    inset-inline-end: 1rem;
 }
 
 .product__desc {
@@ -127,9 +155,8 @@ button {
     border-radius: 1.2rem;
     padding: .7rem 1rem;
     border: none;
-    outline: none;
     cursor: pointer;
-    transition: all 400ms ease;
+    transition: background 400ms ease;
     font-size: .9rem;
     text-transform: uppercase;
 }
