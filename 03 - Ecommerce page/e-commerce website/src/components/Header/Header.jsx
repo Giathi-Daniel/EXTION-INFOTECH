@@ -45,8 +45,8 @@ const Header = () => {
     <header>
       <div className="header__container">
         <ul className="nav__links">
-          <li onClick={() => navigate("/")}>Home</li>
-          <li onClick={() => scrollToSection("category")}>Category</li>
+          <li onClick={() => scrollToSection("#")}>Home</li>
+          <li onClick={() => scrollToSection("categories")}>Category</li>
           <li onClick={() => scrollToSection("products")}>Our Products</li>
           <li onClick={() => scrollToSection("collection")}>Collection</li>
         </ul>
@@ -75,7 +75,7 @@ const Header = () => {
           <ul>
             <li
               onClick={() => {
-                navigate("/");
+                scrollToSection("#");
                 setMobileMenuOpen(false);
               }}
             >
@@ -83,7 +83,7 @@ const Header = () => {
             </li>
             <li
               onClick={() => {
-                scrollToSection("category");
+                scrollToSection("categories");
                 setMobileMenuOpen(false);
               }}
             >
