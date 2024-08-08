@@ -1,4 +1,8 @@
-.hero-slider .hero-slide {
+.hero-slider {
+    block-size: 100vh;
+}
+
+.hero-slide {
     block-size: 100vh;
     background-size: cover;
     background-position: center;

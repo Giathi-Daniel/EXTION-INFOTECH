@@ -13,7 +13,7 @@ const Hero = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 4000,
-    fade: true,
+    fade: false,
   };
 
   const slides = [
@@ -43,7 +43,12 @@ const Hero = () => {
         <div
           key={index}
           className="hero-slide"
-          style={{ backgroundImage: `url(${slide.backgroundImage})` }}
+          style={{
+            backgroundImage: `url(${slide.backgroundImage})`,
+            blockSize: "100vh",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
         >
           <div className="slide-content">
             <h1>{slide.title}</h1>

@@ -21,6 +21,7 @@
 
 /* ============ FEATURES ========== */
 .home__features {
+    margin-block-start: 3rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
