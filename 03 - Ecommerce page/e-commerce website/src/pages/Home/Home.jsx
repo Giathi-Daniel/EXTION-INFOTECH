@@ -13,6 +13,7 @@ import r1 from "../../assets/1.png";
 import { productsOne, productsTwo } from "../../ProductsData";
 import ProductSlider from "../../components/ProductSlider";
 import { toast } from "react-toastify";
+import Hero from "../../components/Hero/Hero";
 
 const Home = () => {
   const [cart, setCart] = useState([]);
@@ -25,7 +26,7 @@ const Home = () => {
   return (
     <div className="home__container">
       <section id="#">
-        <h2>Home</h2>
+        <Hero />
       </section>
 
       {/* HOME FEATURES */}

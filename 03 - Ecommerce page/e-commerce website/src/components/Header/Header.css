@@ -26,7 +26,7 @@ header {
 .logo {
     font-size: 1.5rem;
     font-weight: 500;
-    color: orange;
+    color: #F87427;
 }
 
 .nav__links,
@@ -42,6 +42,7 @@ header {
     align-items: center;
     justify-content: space-between;
     gap: .5rem;
+    color: #252B45;
 }
 
 .nav__menus .menus {
