@@ -19,7 +19,7 @@ const Home = () => {
 
   const handleAddToCart = (product) => {
     setCart([...cart, product]);
-    toast.success("Item added to cart")
+    toast.success("Item added to cart");
   };
 
   return (
@@ -45,14 +45,14 @@ const Home = () => {
           </div>
         </div>
         <div className="feature">
-          <img src={safe} style={{ inlineSize: "4rem" }} alt="" />
+          <img src={safe} alt="" />
           <div className="feature__desc">
             <p>Safe Shopping</p>
             <span>Safe Shopping Guarantee</span>
           </div>
         </div>
         <div className="feature">
-          <img src={online} style={{ inlineSize: "3rem" }} alt="" />
+          <img src={online} style={{ inlineSize: "5rem" }} alt="" />
           <div className="feature__desc">
             <p>Online Support</p>
             <span>24/24 on day</span>

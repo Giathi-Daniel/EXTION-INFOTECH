@@ -7,43 +7,27 @@
 
 /* ============ FEATURES ========== */
 .home__features {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    border: 1px solid #555;
-    margin: 0 0 2rem 0;
-    block-size: 6rem;
-    margin-block-end: 6rem;
-    place-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border: .1rem solid #a7a0a0;
+    padding: 1rem;
+    inline-size: 100%;
+    gap: 3rem;
+    margin-block: 6rem;
 }
 
 .feature {
+    inline-size: auto;
     display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
-img {
+.feature img {
     inline-size: 7rem;
-    background: transparent;
 }
-
-.feature__desc {
-    margin-inline-start: 1rem;
-}
-
-.home__container p {
-    color: #000;
-    font-size: .9rem;
-}
-
-.feature__desc span {
-    color: #555;
-}
-
-h2 {
-    font-size: 1.1rem;
-    border-block-end: 1px solid #ece5e5;
-    padding-block-end: .6rem;
-}
-
 
 /* ============ CATEGORIES ========== */
 .categories__container {
@@ -168,19 +152,28 @@ button:hover {
 
 /* ============ RECOMMEND ========== */
 .recommend {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    place-items: center;
+    display: flex;
+    justify-content: space-between;
     gap: 2rem;
+    inline-size: 100%;
+}
+
+.recommend img {
+    inline-size: 100%;
+    max-inline-size: 10rem;
+    block-size: auto;
 }
 
 .recommend>div {
     display: flex;
+    gap: 3rem;
     border-radius: .3rem;
     background: #fdc378;
     inline-size: 100%;
+    max-inline-size: 100%;
     padding: 1.5rem 2rem;
     justify-content: space-between;
+    align-items: center;
 }
 
 .text p,
@@ -188,4 +181,24 @@ button:hover {
     margin-block-start: .3rem;
 }
 
-/* ============ Collection ========== */
+@media screen and (max-width: 600px) {
+    .home__container {
+        padding-inline: 2rem;
+    }
+
+    .home__features {
+        justify-content: start;
+    }
+
+    .recommend {
+        flex-direction: column;
+    }
+
+    .recommend>div {
+        flex-wrap: wrap;
+    }
+
+    .recommend h1 {
+        font-size: 1.5rem;
+    }
+}

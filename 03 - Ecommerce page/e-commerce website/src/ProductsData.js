@@ -105,11 +105,4 @@ export const productsTwo = [
       desc: "Logitech G502 Hero High Performance Wired Gaming Mouse",
       price: "$44<sup>50</sup>",
     },
-    {
-      id: 6,
-      imgSrc:
-        "https://m.media-amazon.com/images/I/61mpMH5TzkL._AC_UL480_FMwebp_QL65_.jpg",
-      desc: "Logitech G502 Hero High Performance Wired Gaming Mouse",
-      price: "$44<sup>50</sup>",
-    },
   ];
