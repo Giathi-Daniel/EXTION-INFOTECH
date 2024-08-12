@@ -75,34 +75,39 @@ export const productsTwo = [
       id: 1,
       imgSrc:
         "https://m.media-amazon.com/images/I/71lI0RJAInL._AC_UY327_FMwebp_QL65_.jpg",
-      desc: "Large Print Backlit Keyboard, Quiet USB Wired Computer Keyboard",
+      desc: "Large Print Backlit Keyboard",
       price: "$28<sup>99</sup>",
+      rating: 4
     },
     {
       id: 2,
       imgSrc:
         "https://m.media-amazon.com/images/I/61P9FlT2gCL._AC_UY327_FMwebp_QL65_.jpg",
-      desc: "GEEKERA 3 in 1 Mauretic Wireless Charging Station",
+      desc: "Mauretic Wireless Charging Station",
       price: "$35<sup>99</sup>",
+      rating: 3.5
     },
     {
       id: 3,
       imgSrc:
         "https://m.media-amazon.com/images/I/81kKfnnHeuL._AC_UY327_FMwebp_QL65_.jpg",
-      desc: "Razer Wolverine Ultimate Officially Licensed Xbox One Controller",
+      desc: "Xbox One Controller",
       price: "$68<sup>94</sup>",
+      rating: 4.5
     },
     {
       id: 4,
       imgSrc: "https://m.media-amazon.com/images/I/61tZ4yQcGgL._AC_SX425_.jpg",
-      desc: "ZOSI H.265+ 3K 5MP Lite AI Home Security Camera System",
+      desc: "Home Security Camera System",
       price: "$109<sup>99</sup>",
+      rating: 4
     },
     {
       id: 5,
       imgSrc:
         "https://m.media-amazon.com/images/I/61mpMH5TzkL._AC_UL480_FMwebp_QL65_.jpg",
-      desc: "Logitech G502 Hero High Performance Wired Gaming Mouse",
+      desc: "Wired Gaming Mouse",
       price: "$44<sup>50</sup>",
+      rating: 3.5
     },
   ];

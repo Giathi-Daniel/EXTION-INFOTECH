@@ -14,8 +14,9 @@ import { productsOne, productsTwo } from "../../ProductsData";
 import ProductSlider from "../../components/ProductSlider";
 import { toast } from "react-toastify";
 import Hero from "../../components/Hero/Hero";
+import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 
-const Home = () => {
+const Home = ({ onAddToCart }) => {
   const [cart, setCart] = useState([]);
 
   const handleAddToCart = (product) => {
@@ -25,7 +26,7 @@ const Home = () => {
 
   return (
     <div className="home__container">
-      <section id="#">
+      <section id="home">
         <Hero />
       </section>
 
@@ -126,8 +127,45 @@ const Home = () => {
       {/* COLLECTION */}
       <section id="collection">
         <h2>Collection</h2>
-        <div className="products__container">
-          <ProductSlider products={productsTwo} onAddToCart={handleAddToCart} />
+        <div className="collection__container custom-products">
+          {productsTwo.map((product) => (
+            <div key={product.id} className="custom__product">
+              <img src={product.imgSrc} alt={product.desc} />
+              <div className="product__desc">
+                <div className="product__details">
+                  <p dangerouslySetInnerHTML={{ __html: product.desc }}></p>
+                  <div className="product__listing">
+                    <span
+                      className="price"
+                      dangerouslySetInnerHTML={{ __html: product.price }}
+                    ></span>
+                  </div>
+                </div>
+                <div className="stars">
+                  {Array.from({ length: 5 }, (_, index) => {
+                    const ratingValue = index + 0.5;
+                    return (
+                      <span key={index}>
+                        {product.rating >= index + 1 ? (
+                          <FaStar className="icon" />
+                        ) : product.rating >= ratingValue ? (
+                          <FaStarHalfAlt className="icon" />
+                        ) : (
+                          <FaRegStar className="icon" />
+                        )}
+                      </span>
+                    );
+                  })}
+                </div>
+                <button
+                  type="submit"
+                  onClick={() => handleAddToCart(product.id)}
+                >
+                  add to cart
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
     </div>
