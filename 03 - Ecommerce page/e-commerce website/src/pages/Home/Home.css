@@ -82,68 +82,18 @@
 }
 
 .products__container {
-    display: flex;
-    align-items: center;
-    margin: 1.6rem 0;
-    overflow: hidden;
-    inline-size: 100%;
-    position: relative;
-}
-
-.slick-slide img {
-    block-size: 10rem;
-    object-fit: contain;
-}
-
-.slider-container {
-    inline-size: 100%;
-    margin: 0 auto;
-    overflow: hidden;
-}
-
-.slider-button {
-    position: absolute;
-    inset-block-start: 30%;
-    transform: translateY(-50%, 0);
-    background-color: rgba(0, 0, 0, 1);
-    color: #fff;
-    border: none;
-    padding: 1rem;
-    z-index: 10;
-    cursor: pointer;
-    font-size: 1.5rem;
-    border-radius: 50%;
-    block-size: 16%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.slider-button.prev {
-    inset-inline-start: auto;
-}
-
-.slider-button.next {
-    inset-inline-end: 1rem;
-}
-
-.product__desc {
-    gap: 1rem;
-    text-align: center;
-}
-
-.price__listing {
-    display: flex;
-    justify-content: center;
-    margin-block-end: 1rem;
+    margin-block-start: 2rem;
 }
 
 .price {
-    color: #06E492;
+    font-size: .9rem;
 }
 
-.price__listing {
-    color: #a7a0a0;
+.price,
+.product__details p {
+    color: #000;
+    font-weight: bold;
+    margin-block-start: .6rem;
 }
 
 button {
@@ -194,7 +144,7 @@ button:hover {
 }
 
 
-/* ============ COLLECTION ========== */
+
 /* ============ COLLECTION ========== */
 .collection__container {
     display: grid;
@@ -207,6 +157,7 @@ button:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
     background-color: #fffefe;
     padding: 20px;
     border-radius: 10px;
@@ -277,6 +228,12 @@ button:hover {
 
 
 /* ============ MEDIA QUERIES ========== */
+@media screen and (max-width: 800px) {
+    .recommend {
+        flex-wrap: wrap;
+    }
+}
+
 @media screen and (max-width: 600px) {
     .home__container {
         padding-inline: 2rem;
