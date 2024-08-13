@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import SignIn from "./pages/SignIn/SignIn";
+import SignUp from "./pages/Register/SignUp";
+import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import "slick-carousel/slick/slick.css";
@@ -61,6 +63,8 @@ function App() {
             />
           </Route>
           <Route path="/sign-in" element={<SignIn />} />
+          <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
         </Routes>
         <Footer />
       </Router>
