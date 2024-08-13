@@ -3,12 +3,10 @@
 }
 
 .hero-slide {
-    block-size: 100vh;
-    background-size: cover;
-    background-position: center;
     display: flex;
     align-items: center;
     justify-content: center;
+    block-size: 100vh;
 }
 
 .slide-content {

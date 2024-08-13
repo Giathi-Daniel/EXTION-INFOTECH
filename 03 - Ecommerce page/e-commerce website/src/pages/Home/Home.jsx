@@ -121,6 +121,14 @@ const Home = ({ onAddToCart }) => {
                     );
                   })}
                 </div>
+                {/* {loggedIn && (
+                  <button
+                    type="submit"
+                    onClick={() => handleAddToCart(product.id)}
+                  >
+                    add to cart
+                  </button>
+                )} */}
                 <button
                   type="submit"
                   onClick={() => handleAddToCart(product.id)}
@@ -193,6 +201,14 @@ const Home = ({ onAddToCart }) => {
                     );
                   })}
                 </div>
+                {/* {loggedIn && (
+                  <button
+                    type="submit"
+                    onClick={() => handleAddToCart(product.id)}
+                  >
+                    add to cart
+                  </button>
+                )} */}
                 <button
                   type="submit"
                   onClick={() => handleAddToCart(product.id)}

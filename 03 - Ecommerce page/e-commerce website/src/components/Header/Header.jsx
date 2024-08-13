@@ -1,12 +1,28 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { useNavigate, useLocation } from "react-router";
+// import { auth } from "./firenaseConfig";
 import "./Header.css";
 import { IoCart, IoClose, IoMenu } from "react-icons/io5";
 import { FaUser } from "react-icons/fa";
 
 const Header = () => {
-  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [pageState, setPageState] = useState("Sign in");
+  const location = useLocation();
   const navigate = useNavigate();
+  const auth = getAuth();
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setPageState("Cart");
+      } else {
+        setPageState("Sign In");
+      }
+    });
+  }, [auth]);
+
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const mobileMenuRef = useRef(null);
 
   const toggleMobileMenu = () => {
@@ -58,7 +74,7 @@ const Header = () => {
             <FaUser className="menus" /> Log in/Sign up
           </li>
           <li onClick={() => navigate("/cart")}>
-            <IoCart className="menus" /> Cart
+            <IoCart className="menus" /> {pageState}
           </li>
         </div>
         <div className={`mobile__nav ${isMobileMenuOpen ? "open" : ""}`}>
