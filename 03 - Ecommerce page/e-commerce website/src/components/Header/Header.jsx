@@ -51,7 +51,7 @@ const Header = () => {
           <li onClick={() => scrollToSection("collection")}>Collection</li>
         </ul>
         <div className="logo" onClick={() => navigate("/")}>
-          BestShop
+          SmartShop
         </div>
         <div className="nav__menus">
           <li onClick={() => navigate("/register")} className="login">
