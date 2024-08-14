@@ -1,25 +1,27 @@
 import React, { useEffect, useRef, useState } from "react";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { useNavigate, useLocation, Link } from "react-router-dom";
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import { useNavigate, Link } from "react-router-dom";
 import "../css/Header.css";
 import { IoCart, IoClose, IoMenu } from "react-icons/io5";
 import { FaUser } from "react-icons/fa";
 
 const Header = () => {
-  const [pageState, setPageState] = useState("Sign in");
-  const location = useLocation();
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const navigate = useNavigate();
   const auth = getAuth();
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setPageState("Cart");
-      } else {
-        setPageState("Sign In");
-      }
+      setIsAuthenticated(!!user);
     });
   }, [auth]);
+
+  const handleLogout = () => {
+    signOut(auth).then(() => {
+      setIsAuthenticated(false);
+      navigate("/");
+    });
+  };
 
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const mobileMenuRef = useRef(null);
@@ -47,12 +49,8 @@ const Header = () => {
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
-    console.log(`Scrolling to section: ${sectionId}`);
     if (element) {
-      console.log(`Element found: ${element}`);
       element.scrollIntoView({ behavior: "smooth" });
-    } else {
-      console.error(`Element with id "${sectionId}" not found.`);
     }
   };
 
@@ -69,13 +67,27 @@ const Header = () => {
           SmartShop
         </div>
         <div className="nav__menus">
-          <li className="login">
-            <FaUser className="menus" />
-            <Link to="/sign-in">Log in</Link>/<Link to="/sign-up">Sign up</Link>
-          </li>
-          <li onClick={() => navigate("/cart")}>
-            <IoCart className="menus" /> {pageState}
-          </li>
+          {isAuthenticated ? (
+            <>
+              <li onClick={() => navigate("/cart")}>
+                <IoCart className="menus" />
+                Cart
+              </li>
+              <li onClick={() => navigate("/profile")}>
+                <FaUser className="menus" />
+              </li>
+              <button onClick={handleLogout} className="logout__button">
+                Log out
+              </button>
+            </>
+          ) : (
+            <>
+              <li className="login">
+                <Link to="/sign-in">Log in</Link>/
+                <Link to="/sign-up">Sign up</Link>
+              </li>
+            </>
+          )}
         </div>
         <div className={`mobile__nav ${isMobileMenuOpen ? "open" : ""}`}>
           {isMobileMenuOpen ? (
@@ -121,14 +133,26 @@ const Header = () => {
             >
               Collection
             </li>
-            <li
-              onClick={() => {
-                navigate("/sign-in");
-                setMobileMenuOpen(false);
-              }}
-            >
-              <FaUser className="menus" /> Login
-            </li>
+            {isAuthenticated ? (
+              <li
+                onClick={() => {
+                  handleLogout();
+                  setMobileMenuOpen(false);
+                  className="logout_btn"
+                }}
+              >
+                Log out
+              </li>
+            ) : (
+              <li
+                onClick={() => {
+                  navigate("/sign-in");
+                  setMobileMenuOpen(false);
+                }}
+              >
+                <FaUser className="menus" /> Login
+              </li>
+            )}
           </ul>
         </div>
       </div>

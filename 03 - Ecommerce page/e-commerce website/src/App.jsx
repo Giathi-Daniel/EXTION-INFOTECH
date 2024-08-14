@@ -14,8 +14,10 @@ import Footer from "./components/Footer";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Cart from "./pages/Cart";
 import PrivateRoute from "./components/PrivateRoute";
+import Profile from "./pages/Profile";
 
 const useShowFooter = () => {
   const location = useLocation();
@@ -75,6 +77,7 @@ function App() {
         </Route>
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
       </Routes>
       {/* useLocation hook must be called here */}

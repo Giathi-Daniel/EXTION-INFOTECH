@@ -134,6 +134,7 @@
     background-color: #13505e;
     inline-size: 100%;
     color: #fff;
+    margin-block-end: 2rem;
 }
 
 .btn__google:hover {

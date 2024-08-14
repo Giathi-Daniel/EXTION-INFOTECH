@@ -1,7 +1,7 @@
 import { FcGoogle } from "react-icons/fc";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { db } from "../../firebase";
 import { doc, getDoc, setDoc, serverTimestamp } from "firebase/firestore"; // Add these imports if missing
 import "../css/OAuth.css";

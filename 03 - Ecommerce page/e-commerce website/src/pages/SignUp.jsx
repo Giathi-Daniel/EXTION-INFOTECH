@@ -1,4 +1,3 @@
-// src/pages/SignIn/SignIn.jsx
 import { useState } from "react";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import { Link } from "react-router-dom";
@@ -41,14 +40,17 @@ function SignUp() {
         email,
         password
       );
+
       await updateProfile(auth.currentUser, { displayName: name });
 
       const user = userCredential.user;
+
       const formDataCopy = { ...formData };
       delete formDataCopy.password;
       formDataCopy.timestamp = serverTimestamp();
       await setDoc(doc(db, "users", user.uid), formDataCopy);
-      toast.success("Successfully registered");
+
+      toast.success(`Welcome, ${name}!`);
       navigate("/");
     } catch (error) {
       toast.error("Something went wrong");

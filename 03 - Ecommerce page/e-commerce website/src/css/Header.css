@@ -43,6 +43,7 @@ header {
     justify-content: space-between;
     gap: .5rem;
     color: #252B45;
+    /* font-size: 1rem; */
 }
 
 .nav__menus .menus {
@@ -55,6 +56,24 @@ header {
 
 .logo {
     cursor: pointer;
+}
+
+.logout__button,
+.logout__btn {
+    background: transparent;
+    border: .1rem solid #cd2204;
+    border-radius: .4rem;
+    inline-size: auto;
+    color: #000;
+    font-weight: 500;
+    font-size: .8rem;
+}
+
+.logout__button:hover,
+.logout__btn:hover {
+    background: #cd2204;
+    border: none;
+    font-weight: bold;
 }
 
 .mobile__nav {
@@ -114,6 +133,10 @@ header {
 
 @media screen and (max-width: 830px) {
     .nav__links {
+        display: none;
+    }
+
+    .logout__button {
         display: none;
     }
 
