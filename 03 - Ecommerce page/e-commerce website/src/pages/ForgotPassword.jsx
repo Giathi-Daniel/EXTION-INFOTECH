@@ -1,31 +1,41 @@
-// src/pages/SignIn/SignIn.jsx
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { OAuth } from "../components/OAuth";
+import { getAuth, sendPasswordResetEmail } from "firebase/auth";
+import { toast } from "react-toastify";
 
 function ForgotPassword() {
   const [email, setEmail] = useState("");
 
-  function onChange(e) {
-    setEmail(e.target.value);
-  }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const auth = getAuth();
+
+    try {
+      await sendPasswordResetEmail(auth, email);
+      toast.success("Password reset email sent! Check your inbox.");
+    } catch (error) {
+      toast.error("Error sending password reset email. Please try again.");
+    }
+  };
 
   return (
     <section className="forgot-password">
       <h1 className="header">Forgot Password</h1>
       <div className="password-form">
-        <form>
+        <form onSubmit={handleSubmit}>
           <input
             className="input-field"
-            type="text"
+            type="email"
             placeholder="Email Address"
             id="email"
             value={email}
-            onChange={onChange}
+            onChange={(e) => setEmail(e.target.value)}
+            required
           />
           <div className="links-container">
             <p className="mb-6">
-              Dont have an account?{" "}
+              Don’t have an account?{" "}
               <Link to="/sign-up" className="link">
                 Register
               </Link>
