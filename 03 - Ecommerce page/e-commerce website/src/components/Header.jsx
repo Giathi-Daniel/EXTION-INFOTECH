@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { useNavigate, useLocation } from "react-router";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 // import { auth } from "./firenaseConfig";
-import "./Header.css";
+import "../css/Header.css";
 import { IoCart, IoClose, IoMenu } from "react-icons/io5";
 import { FaUser } from "react-icons/fa";
 
@@ -70,8 +70,10 @@ const Header = () => {
           SmartShop
         </div>
         <div className="nav__menus">
-          <li onClick={() => navigate("/register")} className="login">
-            <FaUser className="menus" /> Log in/Sign up
+          <li className="login">
+            <FaUser className="menus" />
+            <Link to="/sign-in">Log in</Link>/
+            <Link to="/register">Sign up</Link>
           </li>
           <li onClick={() => navigate("/cart")}>
             <IoCart className="menus" /> {pageState}

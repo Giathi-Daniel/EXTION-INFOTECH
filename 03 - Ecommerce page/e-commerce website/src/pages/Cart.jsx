@@ -1,6 +1,7 @@
 import React from "react";
 import { FaPlus, FaMinus, FaTrashAlt } from "react-icons/fa";
 import { toast } from "react-toastify";
+import "../css/Cart.css";
 
 function Cart({ cart, handleQuantityChange, handleRemoveItem }) {
   const handlePurchase = () => {

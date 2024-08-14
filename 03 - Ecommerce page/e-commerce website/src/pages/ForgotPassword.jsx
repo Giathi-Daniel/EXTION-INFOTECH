@@ -1,7 +1,7 @@
 // src/pages/SignIn/SignIn.jsx
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { OAuth } from "../../components/OAuth/OAuth";
+import { OAuth } from "../components/OAuth";
 
 function ForgotPassword() {
   const [email, setEmail] = useState("");

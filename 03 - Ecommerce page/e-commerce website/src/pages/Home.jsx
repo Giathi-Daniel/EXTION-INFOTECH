@@ -1,18 +1,18 @@
 import React, { useState } from "react";
-import "./Home.css";
-import shipping from "../../assets/shipping.png";
-import money from "../../assets/money.png";
-import safe from "../../assets/safe.png";
-import online from "../../assets/online.png";
-import computer from "../../assets/categories/computers.png";
-import headphone from "../../assets/categories/headphones.png";
-import phone from "../../assets/categories/smartphones.png";
-import tv from "../../assets/categories/tv-audio.png";
-import laptop from "../../assets/categories/laptops.png";
-import r1 from "../../assets/1.png";
-import { productsOne, productsTwo } from "../../ProductsData";
+import "../css/Home.css";
+import shipping from "../assets/shipping.png";
+import money from "../assets/money.png";
+import safe from "../assets/safe.png";
+import online from "../assets/online.png";
+import computer from "../assets/categories/computers.png";
+import headphone from "../assets/categories/headphones.png";
+import phone from "../assets/categories/smartphones.png";
+import tv from "../assets/categories/tv-audio.png";
+import laptop from "../assets/categories/laptops.png";
+import r1 from "../assets/1.png";
+import { productsOne, productsTwo } from "../ProductsData";
 import { toast } from "react-toastify";
-import Hero from "../../components/Hero/Hero";
+import Hero from "../components/Hero";
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 
 const Home = ({ onAddToCart }) => {

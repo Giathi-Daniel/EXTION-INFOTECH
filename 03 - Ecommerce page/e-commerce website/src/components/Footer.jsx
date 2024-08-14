@@ -10,7 +10,7 @@ import {
 } from "react-icons/fa";
 import { CiMail } from "react-icons/ci";
 import { IoMdTime } from "react-icons/io";
-import "./Footer.css";
+import "../css/Footer.css";
 
 const Footer = () => {
   return (
@@ -19,16 +19,18 @@ const Footer = () => {
         <h1 className="footer__title">About Store</h1>
         <div className="footer__contact">
           <p className="footer__address">
-            <FaHome className="footer__icons"/> No 40 Nairobi Mfangano Street 133/2{" "}
+            <FaHome className="footer__icons" /> No 40 Nairobi Mfangano Street
+            133/2{" "}
           </p>
           <p className="footer__address">
-            <CiMail className="footer__icons"/> Customer@example.com{" "}
+            <CiMail className="footer__icons" /> Customer@example.com{" "}
           </p>
           <p className="footer__address">
-            <FaPhone className="footer__icons"/> (+254) 743893800 - (+234) 994323983{" "}
+            <FaPhone className="footer__icons" /> (+254) 743893800 - (+234)
+            994323983{" "}
           </p>
           <p className="footer__address">
-            <IoMdTime className="footer__icons"/> Open Time: 8:00AM - 6:00PM{" "}
+            <IoMdTime className="footer__icons" /> Open Time: 8:00AM - 6:00PM{" "}
           </p>
         </div>
       </div>
