@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  useLocation,
+} from "react-router-dom";
 import Home from "./pages/Home/Home";
 import SignIn from "./pages/SignIn/SignIn";
 import SignUp from "./pages/Register/SignUp";
@@ -12,7 +17,16 @@ import { ToastContainer } from "react-toastify";
 import Cart from "./pages/Cart/Cart";
 import PrivateRoute from "./components/PrivateRoute";
 
+const useShowFooter = () => {
+  const location = useLocation();
+
+  const noFooterRoutes = ["/sign-in", "/sign-up", "/forgot-password"];
+  return !noFooterRoutes.includes(location.pathname);
+};
+
 function App() {
+  const showFooter = useShowFooter();
+
   const [cart, setCart] = useState([]);
 
   const handleAddToCart = (product) => {
@@ -66,7 +80,7 @@ function App() {
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
         </Routes>
-        <Footer />
+        {showFooter && <Footer />}
       </Router>
       <ToastContainer
         position="top-right"
