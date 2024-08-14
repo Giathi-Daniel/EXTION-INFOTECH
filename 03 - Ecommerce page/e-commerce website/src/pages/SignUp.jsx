@@ -68,6 +68,7 @@ function SignUp() {
               id="name"
               value={name}
               onChange={onChange}
+              required
             />
             <input
               className="input-field"
@@ -76,6 +77,7 @@ function SignUp() {
               id="email"
               value={email}
               onChange={onChange}
+              required
             />
             <div className="password-container">
               <input
@@ -85,6 +87,7 @@ function SignUp() {
                 id="password"
                 value={password}
                 onChange={onChange}
+                required
               />
               {showPassword ? (
                 <AiFillEyeInvisible

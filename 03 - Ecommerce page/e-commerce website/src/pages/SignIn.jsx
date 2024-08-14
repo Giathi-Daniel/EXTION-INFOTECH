@@ -35,6 +35,7 @@ function SignIn() {
               id="email"
               value={email}
               onChange={onChange}
+              required
             />
             <div className="password-container">
               <input
@@ -44,6 +45,7 @@ function SignIn() {
                 id="password"
                 value={password}
                 onChange={onChange}
+                required
               />
               {showPassword ? (
                 <AiFillEyeInvisible
