@@ -3,7 +3,7 @@ import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { useNavigate, Link } from "react-router-dom";
 import "../css/Header.css";
 import { IoCart, IoClose, IoMenu } from "react-icons/io5";
-import { FaUser } from "react-icons/fa";
+import { FaShoppingBasket, FaUser } from "react-icons/fa";
 
 const Header = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -70,7 +70,7 @@ const Header = () => {
           {isAuthenticated ? (
             <>
               <li onClick={() => navigate("/cart")}>
-                <IoCart className="menus" />
+                <FaShoppingBasket className="menus" />
                 Cart
               </li>
               <li onClick={() => navigate("/profile")}>
@@ -138,7 +138,7 @@ const Header = () => {
                 onClick={() => {
                   handleLogout();
                   setMobileMenuOpen(false);
-                  className="logout_btn"
+                  className = "logout_btn";
                 }}
               >
                 Log out

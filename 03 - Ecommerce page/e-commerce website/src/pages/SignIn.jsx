@@ -51,7 +51,7 @@ function SignIn() {
     <section className="sign-in-page">
       <div className="sign-in-container">
         {loading ? (
-          <Spinner /> // Display spinner if loading is true
+          <Spinner />
         ) : (
           <div className="sign-in-form">
             <h2 className="welcome-back">Welcome Back</h2>

@@ -1,5 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../css/Home.css";
+import { toast } from "react-toastify";
+import Hero from "../components/Hero";
+import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
+import { db } from "../../firebase";
+import { doc, setDoc, getDoc, collection, getDocs } from "firebase/firestore";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+
+// Assets imports
 import shipping from "../assets/shipping.png";
 import money from "../assets/money.png";
 import safe from "../assets/safe.png";
@@ -10,17 +18,74 @@ import phone from "../assets/categories/smartphones.png";
 import tv from "../assets/categories/tv-audio.png";
 import laptop from "../assets/categories/laptops.png";
 import r1 from "../assets/1.png";
-import { productsOne, productsTwo } from "../ProductsData";
-import { toast } from "react-toastify";
-import Hero from "../components/Hero";
-import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 
-const Home = ({ onAddToCart }) => {
-  const [cart, setCart] = useState([]);
+const Home = () => {
+  const [productsOne, setProductsOne] = useState([]);
+  const [productsTwo, setProductsTwo] = useState([]);
+  const [user, setUser] = useState(null);
 
-  const handleAddToCart = (product) => {
-    setCart([...cart, product]);
-    toast.success("Item added to cart");
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const productsOneCollection = collection(db, "productsOne");
+        const productsTwoCollection = collection(db, "productsTwo");
+        const productsOneSnapshot = await getDocs(productsOneCollection);
+        const productsTwoSnapshot = await getDocs(productsTwoCollection);
+        setProductsOne(productsOneSnapshot.docs.map((doc) => doc.data()));
+        setProductsTwo(productsTwoSnapshot.docs.map((doc) => doc.data()));
+      } catch (error) {
+        console.error("Error fetching products: ", error);
+      }
+    };
+    fetchProducts();
+  }, []);
+
+  useEffect(() => {
+    const auth = getAuth();
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user);
+      } else {
+        setUser(null);
+      }
+    });
+    return () => unsubscribe();
+  }, []);
+
+  const handleAddToCart = async (product) => {
+    if (!user) {
+      toast.error("You must be logged in to add items to the cart.");
+      return;
+    }
+
+    try {
+      const userCartRef = doc(db, "carts", user.uid);
+      const cartDoc = await getDoc(userCartRef);
+      let updatedCart;
+
+      if (cartDoc.exists()) {
+        const cartData = cartDoc.data().items || [];
+        const existingProductIndex = cartData.findIndex(
+          (item) => item.id === product.id
+        );
+
+        if (existingProductIndex > -1) {
+          cartData[existingProductIndex].quantity += 1;
+        } else {
+          cartData.push({ ...product, quantity: 1 });
+        }
+
+        updatedCart = cartData;
+      } else {
+        updatedCart = [{ ...product, quantity: 1 }];
+      }
+
+      await setDoc(userCartRef, { items: updatedCart }, { merge: true });
+      toast.success("Item added to cart");
+    } catch (error) {
+      console.error("Error adding to cart: ", error);
+      toast.error("Failed to add item to cart");
+    }
   };
 
   return (
@@ -92,7 +157,7 @@ const Home = ({ onAddToCart }) => {
       <section id="products">
         <h2>Products</h2>
         <div className="collection__container">
-          {productsOne.map((product) => (
+          {productsTwo.map((product) => (
             <div key={product.id} className="custom__product">
               <img src={product.imgSrc} alt={product.desc} />
               <div className="product__desc">
@@ -121,18 +186,7 @@ const Home = ({ onAddToCart }) => {
                     );
                   })}
                 </div>
-                {/* {loggedIn && (
-                  <button
-                    type="submit"
-                    onClick={() => handleAddToCart(product.id)}
-                  >
-                    add to cart
-                  </button>
-                )} */}
-                <button
-                  type="submit"
-                  onClick={() => handleAddToCart(product.id)}
-                >
+                <button type="submit" onClick={() => handleAddToCart(product)}>
                   add to cart
                 </button>
               </div>
@@ -172,7 +226,7 @@ const Home = ({ onAddToCart }) => {
       <section id="collection">
         <h2>Collection</h2>
         <div className="collection__container">
-          {productsTwo.map((product) => (
+          {productsOne.map((product) => (
             <div key={product.id} className="custom__product">
               <img src={product.imgSrc} alt={product.desc} />
               <div className="product__desc">
@@ -201,18 +255,7 @@ const Home = ({ onAddToCart }) => {
                     );
                   })}
                 </div>
-                {/* {loggedIn && (
-                  <button
-                    type="submit"
-                    onClick={() => handleAddToCart(product.id)}
-                  >
-                    add to cart
-                  </button>
-                )} */}
-                <button
-                  type="submit"
-                  onClick={() => handleAddToCart(product.id)}
-                >
+                <button type="submit" onClick={() => handleAddToCart(product)}>
                   add to cart
                 </button>
               </div>

@@ -1,11 +1,71 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { FaPlus, FaMinus, FaTrashAlt } from "react-icons/fa";
 import { toast } from "react-toastify";
+import { db } from "../../firebase";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
 import "../css/Cart.css";
 
-function Cart({ cart, handleQuantityChange, handleRemoveItem }) {
-  const handlePurchase = () => {
+function Cart({ user }) {
+  const [cart, setCart] = useState([]);
+
+  useEffect(() => {
+    console.log("Current user:", user);
+
+    const fetchCartItems = async () => {
+      if (user && user.uid) {
+        try {
+          const userCartRef = doc(db, "carts", user.uid);
+          const cartDoc = await getDoc(userCartRef);
+          if (cartDoc.exists()) {
+            console.log("Cart data:", cartDoc.data());
+            setCart(cartDoc.data().items || []);
+          } else {
+            console.log("No cart data found.");
+            setCart([]);
+          }
+        } catch (error) {
+          console.error("Error fetching cart items: ", error);
+        }
+      }
+    };
+
+    fetchCartItems();
+  }, [user]);
+
+  const updateFirestoreCart = async (updatedCart) => {
+    if (user && user.uid) {
+      try {
+        const userCartRef = doc(db, "carts", user.uid);
+        await updateDoc(userCartRef, { items: updatedCart });
+      } catch (error) {
+        console.error("Error updating cart in Firestore: ", error);
+        toast.error("Failed to update cart");
+      }
+    }
+  };
+
+  const handleQuantityChange = async (id, change) => {
+    const updatedCart = cart.map((item) =>
+      item.id === id
+        ? { ...item, quantity: Math.max(item.quantity + change, 1) }
+        : item
+    );
+    setCart(updatedCart);
+    await updateFirestoreCart(updatedCart);
+  };
+
+  const handleRemoveItem = async (id) => {
+    const updatedCart = cart.filter((item) => item.id !== id);
+    setCart(updatedCart);
+    await updateFirestoreCart(updatedCart);
+  };
+
+  const handlePurchase = async () => {
     toast.success("Products have been successfully purchased!");
+    setCart([]);
+    if (user && user.uid) {
+      await updateFirestoreCart([]);
+    }
   };
 
   const subtotal = cart.reduce(
@@ -45,7 +105,10 @@ function Cart({ cart, handleQuantityChange, handleRemoveItem }) {
                     <td>{item.name}</td>
                     <td>${item.price.toFixed(2)}</td>
                     <td>
-                      <button onClick={() => handleQuantityChange(item.id, -1)}>
+                      <button
+                        onClick={() => handleQuantityChange(item.id, -1)}
+                        disabled={item.quantity <= 1}
+                      >
                         <FaMinus />
                       </button>
                       {item.quantity}
