@@ -1,38 +1,58 @@
-.App {
-  text-align: center;
+/* ============== HEADER ============== */
+main {
+  padding: 1rem;
+  max-inline-size: 700px;
+  margin: 0 auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  margin-block-start: 1rem;
+  margin-block-end: 2rem;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+header a {
+  color: inherit
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+header a.logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+header nav {
+  display: flex;
+  gap: 2rem;
+}
+
+/* ============== POST ============== */
+.post {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 1rem;
+  margin-block-end: 1.4rem;
+}
+
+.texts h2 {
+  font-size: 1.8rem;
+}
+
+.info {
+  color: #888;
+  font-size: .7rem;
+  font-weight: bold;
+  margin: 1rem 0;
+  display: flex;
+  gap: .5rem;
+}
+
+.info .author {
+  color: #333;
+}
+
+.summary {
+  margin: -.6rem 0;
+  line-height: 1.4rem;
 }
