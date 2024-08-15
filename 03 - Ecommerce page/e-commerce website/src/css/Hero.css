@@ -1,4 +1,9 @@
+.home_container {
+    padding-inline: -2rem;
+}
+
 .hero-slider {
+    inline-size: 100%;
     block-size: 100vh;
 }
 
@@ -6,7 +11,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    block-size: 100vh;
+    inline-size: 100%;
+    block-size: 100%;
+}
+
+.hero-slide div {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    inline-size: 100%;
+    block-size: 100%;
 }
 
 .slide-content {
@@ -15,6 +29,8 @@
     color: #fff;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
     padding: 0 20px;
+    position: relative;
+    z-index: 1;
 }
 
 .slide-content h1 {

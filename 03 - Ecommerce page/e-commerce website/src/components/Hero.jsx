@@ -40,19 +40,19 @@ const Hero = () => {
   return (
     <Slider {...sliderSettings} className="hero-slider">
       {slides.map((slide, index) => (
-        <div
-          key={index}
-          className="hero-slide"
-          style={{
-            backgroundImage: `url(${slide.backgroundImage})`,
-            blockSize: "100vh",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
-          <div className="slide-content">
-            <h1>{slide.title}</h1>
-            <p>{slide.description}</p>
+        <div key={index} className="hero-slide">
+          <div
+            style={{
+              backgroundImage: `url(${slide.backgroundImage})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              blockSize: "100vh",
+            }}
+          >
+            <div className="slide-content">
+              <h1>{slide.title}</h1>
+              <p>{slide.description}</p>
+            </div>
           </div>
         </div>
       ))}
