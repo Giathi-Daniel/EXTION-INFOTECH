@@ -56,3 +56,33 @@ header nav {
   margin: -.6rem 0;
   line-height: 1.4rem;
 }
+
+/* ============== LOGIN/REGISTER ============== */
+.login,
+.register {
+  max-inline-size: 400px;
+  margin: 0 auto;
+}
+
+input {
+  display: block;
+  margin-block-end: .6rem;
+  inline-size: 100%;
+  padding: .5rem 1rem;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+button {
+  inline-size: 100%;
+  display: block;
+  background-color: #555;
+  color: #fff;
+  border-radius: .7rem;
+  padding: 1rem 0;
+}
+
+form h1 {
+  text-align: center;
+}
