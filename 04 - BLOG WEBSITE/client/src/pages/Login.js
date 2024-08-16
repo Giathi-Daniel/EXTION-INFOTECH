@@ -1,10 +1,11 @@
-import React, {useState} from 'react'
+import React, {useContext, useState} from 'react'
 import { Navigate } from 'react-router-dom'
 
 const Login = () => {
   const [username, setUserName] = useState('')
   const [password, setPassword] = useState('')
   const [redirect, setRedirect] = useState(true)
+  const {setUserInfo} = useContext(UserContext)
 
   async function login(ev) {
     ev.preventDefault()
@@ -16,7 +17,10 @@ const Login = () => {
     })
 
     if(response.ok) {
-      setRedirect(true)
+      response.json().then(userInfo => {
+        setUserInfo(userInfo)
+        setRedirect(true)
+      })
     } else {
       alert('login failed')
     }
