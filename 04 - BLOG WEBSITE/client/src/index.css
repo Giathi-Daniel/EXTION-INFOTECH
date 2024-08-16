@@ -15,6 +15,10 @@ body {
   overflow: hidden;
 }
 
+a {
+  cursor: pointer;
+}
+
 img {
   max-inline-size: 100%;
   background-size: cover;

@@ -79,6 +79,7 @@ input {
 }
 
 button {
+  cursor: pointer;
   inline-size: 100%;
   display: block;
   background-color: #555;
@@ -131,6 +132,28 @@ button {
 
 .post-page .content {
   line-height: 1.6rem;
+}
+
+
+/* ============== POST EDIT ============== */
+.edit-row {
+  text-align: center;
+  margin-block-end: 20px;
+}
+
+.edit-btn {
+  background-color: #333;
+  display: inline-flex;
+  align-items: center;
+  gap: .7rem;
+  color: #fff;
+  border-radius: .6rem;
+  padding: 1rem 1.6rem;
+  cursor: pointer;
+}
+
+.edit-btn svg {
+  block-size: 1rem;
 }
 
 
