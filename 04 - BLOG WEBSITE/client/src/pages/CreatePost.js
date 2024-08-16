@@ -39,6 +39,7 @@ const CreatePost = () => {
         const response = await fetch('https://localhost:4000/post', {
             method: 'POST',
             body: data,
+            credentials: 'include'
         })
 
         if(response.ok) {

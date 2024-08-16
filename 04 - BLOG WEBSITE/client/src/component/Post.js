@@ -1,19 +1,20 @@
-import React from 'react'
+import {formatISO9075} from "date-fns"
 
-const Post = () => {
+const Post = ({title, summary, cover, content, createdAt, author}) => {
+
   return (
     <>
         <div className="post">
         <div className="img">
-        <img src="https://www.techflow.com/wp-content/uploads/2024/06/DALL%C2%B7E-2024-06-24-12.59.19-A-detailed-illustration-of-a-microgrid-on-a-U.S.-military-base-in-a-16_9-aspect-ratio.-The-base-should-feature-elements-such-as-barracks-command-cent.webp" alt="img" />
+        <img src={'http://localhost:4000/'+cover} alt="img" />
         </div>
         <div className="texts">
-        <h2>DoD’s Energy Resilience Amid National Security Concerns from Climate Change</h2>
+        <h2>{title}</h2>
         <p className="info">
-          <span className="author">Blackshark</span>
-          <time>2024-08-15 10:57</time>
+          <span className="author">{author.username}</span>
+          <time>{formatISO9075(new Date(createdAt))}</time>
         </p>
-        <p className="summary">Energy & Mobility Solutions In 2023, the Office of the Director of National Intelligence identified climate change</p>
+        <p className="summary">{summary}</p>
         </div>
       </div>
       {/* <div className="post">
