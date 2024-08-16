@@ -1,17 +1,27 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 const Login = () => {
   const [username, setUserName] = useState('')
-  const
-  
+  const [password, setPassword]= useState('')
+
   async function register(ev) {
     ev.preventDefault()
-
-    await fetch('https://localhost:4000'), {
+    
+    const response = await fetch('http://localhost:4000/register', {
       method: 'POST',
-      body: JSON.sptrigify({username, password}),
-      headers: {'Content-type ':''application/json '}
+      body: JSON.stringify({username, password}),
+      headers: {'Content-Type': 'application/json'}
+    })
+
+    if(response.status === 200) {
+      alert('registration successdully')
+    } else {
+      alert('registration failed')
+    }
   }
+
+
+  
 
   return (
     <form action="" className="login" onSubmit={register}>
@@ -26,7 +36,7 @@ const Login = () => {
       value={password}
       onChange={ev => setUserName(ev.target.value)} 
        />
-      <button>Login</button>
+      <button>Register</button>
     </form>
   )
 }

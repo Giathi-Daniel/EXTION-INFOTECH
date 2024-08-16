@@ -1,11 +1,33 @@
-import React from 'react'
+import React, {useState} from 'react'
+import { Navigate } from 'react-router-dom'
 
 const Login = () => {
   const [username, setUserName] = useState('')
-  const [password, setPassword] = useStae('')
+  const [password, setPassword] = useState('')
+  const [redirect, setRedirect] = useState(true)
+
+  async function login(ev) {
+    ev.preventDefault()
+    const response = await fetch('http://localhost:4000/login', {
+      method: 'POST',
+      body: JSON.stringify({username, password}),
+      headers: {'Content-Type': 'application/json'},
+      credentials: 'include'
+    })
+
+    if(response.ok) {
+      setRedirect(true)
+    } else {
+      alert('login failed')
+    }
+
+    if (redirect) {
+      return <Navigate to={'/'} />
+    }
+  }
 
   return (
-    <form action="" className="login" onSubmit>
+    <form action="" className="login" onSubmit={login}>
       <h1>Login</h1>
       <input type="text" 
       placeholder="username"
