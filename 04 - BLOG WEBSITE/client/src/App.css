@@ -1,7 +1,7 @@
 /* ============== HEADER ============== */
 main {
   padding: 1rem;
-  max-inline-size: 700px;
+  max-inline-size: 960px;
   margin: 0 auto;
 }
 
@@ -37,6 +37,10 @@ header nav {
 
 .texts h2 {
   font-size: 1.8rem;
+}
+
+.texts a {
+  color: inherit;
 }
 
 .info {
@@ -86,4 +90,54 @@ button {
 .login h1,
 .register h1 {
   text-align: center;
+}
+
+/* ============== POST-PAGE ============== */
+.post-page .img {
+  max-block-size: 200px;
+  display: flex;
+  overflow: hidden;
+}
+
+.post-page .img img {
+  object-fit: cover;
+  object-position: center center;
+  inline-size: 100%;
+}
+
+.post-page a {
+  color: #333;
+  text-decoration: underline;
+}
+
+.post-page h1 {
+  text-align: center;
+  margin: 1rem 0 1.3rem;
+}
+
+.post-page time {
+  text-align: center;
+  display: block;
+  font-size: .7rem;
+  color: #aaa;
+}
+
+.post-page .author {
+  text-align: center;
+  margin-block-end: 2rem;
+  font-size: .7rem;
+  font-weight: bold;
+}
+
+.post-page .content {
+  line-height: 1.6rem;
+}
+
+
+
+/* ============== MEDIA QUERIES ============== */
+@media screen and (max-width: 700px) {
+  .post {
+    grid-template-columns: 1fr;
+  }
 }
