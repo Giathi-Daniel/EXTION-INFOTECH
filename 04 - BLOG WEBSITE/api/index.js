@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const User = require('./models/user');  
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken')
+const cookieParser = require('cookie-parser')
 
 const app = express();
 
@@ -12,8 +13,8 @@ const secret = '3u98u39f3984hf93hf934h9hfhe'
 
 app.use(cors({credentials: true, origin:'https://localhost:3000'}));
 app.use(express.json());
+app.use(cookieParser());
 
-// Connect to MongoDB
 mongoose.connect('mongodb+srv://blacksharkchi:kx55RvAgKkcFJ1sk@cluster0.btqgf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -57,6 +58,11 @@ app.post('/login', async (req, res) => {
     } catch (e) {
         
     }
+})
+
+// Profile
+app.get('/profile', (req, res) => {
+    res.json(req.cookies)
 })
 
 app.listen(4000)
