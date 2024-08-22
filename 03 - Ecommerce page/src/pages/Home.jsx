@@ -135,11 +135,11 @@ const Home = () => {
             <p>Computers</p>
           </div>
           <div className="category">
-            <img src={headphone} alt="" style={{ blockSize: "14.5rem" }} />
+            <img src={headphone} alt="" style={{ blockSize: "14.6rem" }} />
             <p>Headphones</p>
           </div>
           <div className="category">
-            <img src={laptop} alt="" style={{ blockSize: "14.5rem" }} />
+            <img src={laptop} alt="" style={{ blockSize: "14.6rem" }} />
             <p>Laptops</p>
           </div>
           <div className="category">

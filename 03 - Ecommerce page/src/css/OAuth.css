@@ -84,7 +84,7 @@
 .password-icon {
     position: absolute;
     inset-inline-end: 12px;
-    inset-block-start: 50%;
+    inset-block-start: 37%;
     transform: translateY(-50%);
     font-size: 1.5rem;
     cursor: pointer;
