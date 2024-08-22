@@ -90,181 +90,186 @@ const Home = () => {
   };
 
   return (
-    <div className="home__container">
-      <section id="home">
+    <>
+      <section id="home" className="hero_section">
         <Hero />
       </section>
-
-      {/* HOME FEATURES */}
-      <div className="home__features">
-        <div className="feature">
-          <img src={shipping} alt="" />
-          <div className="feature__desc">
-            <p>Fast & Free Shipping</p>
-            <span>on all orders $99</span>
-          </div>
-        </div>
-        <div className="feature">
-          <img src={money} alt="" />
-          <div className="feature__desc">
-            <p>100% Money Guarantee</p>
-            <span>30 days money back</span>
-          </div>
-        </div>
-        <div className="feature">
-          <img src={safe} alt="" />
-          <div className="feature__desc">
-            <p>Safe Shopping</p>
-            <span>Safe Shopping Guarantee</span>
-          </div>
-        </div>
-        <div className="feature">
-          <img src={online} style={{ inlineSize: "5rem" }} alt="" />
-          <div className="feature__desc">
-            <p>Online Support</p>
-            <span>24/24 on day</span>
-          </div>
-        </div>
-      </div>
-
-      {/* CATEGORIES */}
-      <section id="categories">
-        <h2>Category</h2>
-        <div className="categories__container">
-          <div className="category">
-            <img src={computer} alt="" />
-            <p>Computers</p>
-          </div>
-          <div className="category">
-            <img src={headphone} alt="" style={{ blockSize: "14.6rem" }} />
-            <p>Headphones</p>
-          </div>
-          <div className="category">
-            <img src={laptop} alt="" style={{ blockSize: "14.6rem" }} />
-            <p>Laptops</p>
-          </div>
-          <div className="category">
-            <img src={tv} alt="" />
-            <p>TV & Audio</p>
-          </div>
-          <div className="category">
-            <img src={phone} alt="" />
-            <p>Smartphones</p>
-          </div>
-        </div>
-      </section>
-
-      {/* PRODUCTS */}
-      <section id="products">
-        <h2>Products</h2>
-        <div className="collection__container">
-          {productsTwo.map((product) => (
-            <div key={product.id} className="custom__product">
-              <img src={product.imgSrc} alt={product.desc} />
-              <div className="product__desc">
-                <div className="product__details">
-                  <p dangerouslySetInnerHTML={{ __html: product.desc }}></p>
-                  <div className="product__listing">
-                    <span
-                      className="price"
-                      dangerouslySetInnerHTML={{ __html: product.price }}
-                    ></span>
-                  </div>
-                </div>
-                <div className="stars">
-                  {Array.from({ length: 5 }, (_, index) => {
-                    const ratingValue = index + 0.5;
-                    return (
-                      <span key={`${product.id}-${index}`}>
-                        {product.rating >= index + 1 ? (
-                          <FaStar className="icon" />
-                        ) : product.rating >= ratingValue ? (
-                          <FaStarHalfAlt className="icon" />
-                        ) : (
-                          <FaRegStar className="icon" />
-                        )}
-                      </span>
-                    );
-                  })}
-                </div>
-                <button type="submit" onClick={() => handleAddToCart(product)}>
-                  add to cart
-                </button>
-              </div>
+      
+      <div className="home__container">
+        {/* HOME FEATURES */}
+        <div className="home__features">
+          <div className="feature">
+            <img src={shipping} alt="" />
+            <div className="feature__desc">
+              <p>Fast & Free Shipping</p>
+              <span>on all orders $99</span>
             </div>
-          ))}
-        </div>
-      </section>
-
-      {/* RECOMMENDED */}
-      <div className="recommend">
-        <div>
-          <div className="text">
-            <h1>Samsung Galaxy Tab</h1>
-            <p>Innovation security in your family</p>
-            <button type="button" className="btn">
-              shop now
-            </button>
           </div>
-          <img src={r1} alt="" />
-        </div>
-        <div>
-          <div className="text">
-            <h1>Smart watch (black camo)</h1>
-            <p>Military Smart Watch for Men with Text and Call</p>
-            <button type="button" className="btn">
-              shop now
-            </button>
-          </div>
-          <img
-            src={watch}
-            alt="military watch"
-          />
-        </div>
-      </div>
-
-      {/* COLLECTION */}
-      <section id="collection">
-        <h2>Collection</h2>
-        <div className="collection__container">
-          {productsOne.map((product) => (
-            <div key={product.id} className="custom__product">
-              <img src={product.imgSrc} alt={product.desc} />
-              <div className="product__desc">
-                <div className="product__details">
-                  <p dangerouslySetInnerHTML={{ __html: product.desc }}></p>
-                  <div className="product__listing">
-                    <span
-                      className="price"
-                      dangerouslySetInnerHTML={{ __html: product.price }}
-                    ></span>
-                  </div>
-                </div>
-                <div className="stars">
-                  {Array.from({ length: 5 }, (_, index) => {
-                    const ratingValue = index + 0.5;
-                    return (
-                      <span key={index}>
-                        {product.rating >= index + 1 ? (
-                          <FaStar className="icon" />
-                        ) : product.rating >= ratingValue ? (
-                          <FaStarHalfAlt className="icon" />
-                        ) : (
-                          <FaRegStar className="icon" />
-                        )}
-                      </span>
-                    );
-                  })}
-                </div>
-                <button type="submit" onClick={() => handleAddToCart(product)}>
-                  add to cart
-                </button>
-              </div>
+          <div className="feature">
+            <img src={money} alt="" />
+            <div className="feature__desc">
+              <p>100% Money Guarantee</p>
+              <span>30 days money back</span>
             </div>
-          ))}
+          </div>
+          <div className="feature">
+            <img src={safe} alt="" />
+            <div className="feature__desc">
+              <p>Safe Shopping</p>
+              <span>Safe Shopping Guarantee</span>
+            </div>
+          </div>
+          <div className="feature">
+            <img src={online} style={{ inlineSize: "5rem" }} alt="" />
+            <div className="feature__desc">
+              <p>Online Support</p>
+              <span>24/24 on day</span>
+            </div>
+          </div>
         </div>
-      </section>
-    </div>
+
+        {/* CATEGORIES */}
+        <section id="categories">
+          <h2>Category</h2>
+          <div className="categories__container">
+            <div className="category">
+              <img src={computer} alt="" />
+              <p>Computers</p>
+            </div>
+            <div className="category">
+              <img src={headphone} alt="" style={{ blockSize: "14.6rem" }} />
+              <p>Headphones</p>
+            </div>
+            <div className="category">
+              <img src={laptop} alt="" style={{ blockSize: "14.6rem" }} />
+              <p>Laptops</p>
+            </div>
+            <div className="category">
+              <img src={tv} alt="" />
+              <p>TV & Audio</p>
+            </div>
+            <div className="category">
+              <img src={phone} alt="" />
+              <p>Smartphones</p>
+            </div>
+          </div>
+        </section>
+
+        {/* PRODUCTS */}
+        <section id="products">
+          <h2>Products</h2>
+          <div className="collection__container">
+            {productsTwo.map((product) => (
+              <div key={product.id} className="custom__product">
+                <img src={product.imgSrc} alt={product.desc} />
+                <div className="product__desc">
+                  <div className="product__details">
+                    <p dangerouslySetInnerHTML={{ __html: product.desc }}></p>
+                    <div className="product__listing">
+                      <span
+                        className="price"
+                        dangerouslySetInnerHTML={{ __html: product.price }}
+                      ></span>
+                    </div>
+                  </div>
+                  <div className="stars">
+                    {Array.from({ length: 5 }, (_, index) => {
+                      const ratingValue = index + 0.5;
+                      return (
+                        <span key={`${product.id}-${index}`}>
+                          {product.rating >= index + 1 ? (
+                            <FaStar className="icon" />
+                          ) : product.rating >= ratingValue ? (
+                            <FaStarHalfAlt className="icon" />
+                          ) : (
+                            <FaRegStar className="icon" />
+                          )}
+                        </span>
+                      );
+                    })}
+                  </div>
+                  <button
+                    type="submit"
+                    onClick={() => handleAddToCart(product)}
+                  >
+                    add to cart
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* RECOMMENDED */}
+        <div className="recommend">
+          <div>
+            <div className="text">
+              <h1>Samsung Galaxy Tab</h1>
+              <p>Innovation security in your family</p>
+              <button type="button" className="btn">
+                shop now
+              </button>
+            </div>
+            <img src={r1} alt="" />
+          </div>
+          <div>
+            <div className="text">
+              <h1>Smart watch (black camo)</h1>
+              <p>Military Smart Watch for Men with Text and Call</p>
+              <button type="button" className="btn">
+                shop now
+              </button>
+            </div>
+            <img src={watch} alt="military watch" />
+          </div>
+        </div>
+
+        {/* COLLECTION */}
+        <section id="collection">
+          <h2>Collection</h2>
+          <div className="collection__container">
+            {productsOne.map((product) => (
+              <div key={product.id} className="custom__product">
+                <img src={product.imgSrc} alt={product.desc} />
+                <div className="product__desc">
+                  <div className="product__details">
+                    <p dangerouslySetInnerHTML={{ __html: product.desc }}></p>
+                    <div className="product__listing">
+                      <span
+                        className="price"
+                        dangerouslySetInnerHTML={{ __html: product.price }}
+                      ></span>
+                    </div>
+                  </div>
+                  <div className="stars">
+                    {Array.from({ length: 5 }, (_, index) => {
+                      const ratingValue = index + 0.5;
+                      return (
+                        <span key={index}>
+                          {product.rating >= index + 1 ? (
+                            <FaStar className="icon" />
+                          ) : product.rating >= ratingValue ? (
+                            <FaStarHalfAlt className="icon" />
+                          ) : (
+                            <FaRegStar className="icon" />
+                          )}
+                        </span>
+                      );
+                    })}
+                  </div>
+                  <button
+                    type="submit"
+                    onClick={() => handleAddToCart(product)}
+                  >
+                    add to cart
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      </div>
+    </>
   );
 };
 

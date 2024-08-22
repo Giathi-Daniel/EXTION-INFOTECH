@@ -2,13 +2,14 @@
     background: #fff;
     max-inline-size: 100%;
     padding-inline: 5rem;
+    overflow-x: hidden;
 }
 
-/* ======== SECTIONS ========== */
-#collection,
 #products,
-#categories {
-    padding-block: 7rem;
+#collection,
+#categories,
+.home__features {
+    padding: 7rem .3rem;
 }
 
 #collection h2,
@@ -70,6 +71,7 @@
     padding: .5rem;
     transition: var(--transition);
     object-fit: contain;
+    inline-size: 100%;
 }
 
 .category img:hover {
@@ -148,7 +150,7 @@ button:hover {
 /* ============ COLLECTION ========== */
 .collection__container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 1rem;
     margin-block-start: 2rem;
 }
@@ -236,7 +238,7 @@ button:hover {
 
 @media screen and (max-width: 600px) {
     .home__container {
-        padding-inline: 2rem;
+        padding-inline: 1rem;
     }
 
     .home__features {

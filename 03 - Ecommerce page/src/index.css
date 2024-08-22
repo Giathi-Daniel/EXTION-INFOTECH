@@ -19,6 +19,7 @@ html {
 body {
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
     line-height: 1.7rem;
+    overflow-x: hidden;
 }
 
 .conatiner {
@@ -28,6 +29,7 @@ body {
 }
 
 img {
-    inline-size: 100%;
+    max-inline-size: 100%;
     object-fit: cover;
+    block-size: auto
 }

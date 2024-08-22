@@ -19,19 +19,19 @@ const Hero = () => {
   const slides = [
     {
       backgroundImage:
-        "https://m.media-amazon.com/images/I/718aT6EGL4L.__AC_SX300_SY300_QL70_FMwebp_.jpg",
+        "https://img.freepik.com/premium-photo/abstract-graphic-design-featuring-shopping-icons-geometric-shapes_1305385-18135.jpg?size=626&ext=jpg&ga=GA1.2.447471987.1724343035&semt=ais_hybrid",
       title: "Welcome to Our Store",
       description: "Find the best deals on the latest products.",
     },
     {
       backgroundImage:
-        "https://m.media-amazon.com/images/I/41pTMpnKFhL._AC_UF480,480_SR480,480_.jpg",
+        "https://img.freepik.com/free-psd/3d-rendering-ecommerce-background_23-2151386703.jpg?size=626&ext=jpg&ga=GA1.1.447471987.1724343035&semt=ais_hybrid",
       title: "Exclusive Offers",
       description: "Enjoy special discounts and offers only for you.",
     },
     {
       backgroundImage:
-        "https://m.media-amazon.com/images/I/81y296p3rdL._AC_UL480_FMwebp_QL65_.jpg",
+        "https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg?auto=compress&cs=tinysrgb&w=600",
       title: "New Arrivals",
       description: "Check out the latest additions to our collection.",
     },
@@ -44,9 +44,6 @@ const Hero = () => {
           <div
             style={{
               backgroundImage: `url(${slide.backgroundImage})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              blockSize: "100vh",
             }}
           >
             <div className="slide-content">
