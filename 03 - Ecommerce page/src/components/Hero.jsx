@@ -1,39 +1,41 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../css/Hero.css";
+import bg1 from "../assets/bg1.png";
+import bg2 from "../assets/bg2.avif";
+import bg3 from "../assets/bg3.png";
 
 const Hero = () => {
   const sliderSettings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 4000,
-    fade: false,
+    fade: true,
   };
 
   const slides = [
     {
-      backgroundImage:
-        "https://img.freepik.com/premium-photo/abstract-graphic-design-featuring-shopping-icons-geometric-shapes_1305385-18135.jpg?size=626&ext=jpg&ga=GA1.2.447471987.1724343035&semt=ais_hybrid",
-      title: "Welcome to Our Store",
-      description: "Find the best deals on the latest products.",
+      backgroundImage: bg1,
+      title: "Redefining Smart Living",
+      description: "Experience cutting-edge technology with our latest range of smart devices.",
     },
     {
-      backgroundImage:
-        "https://img.freepik.com/free-psd/3d-rendering-ecommerce-background_23-2151386703.jpg?size=626&ext=jpg&ga=GA1.1.447471987.1724343035&semt=ais_hybrid",
-      title: "Exclusive Offers",
-      description: "Enjoy special discounts and offers only for you.",
+      backgroundImage: bg2,
+      title: "Next-Gen Performance",
+      description: "Unlock the power of innovation with our high-performance gadgets.",
     },
     {
-      backgroundImage:
-        "https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg?auto=compress&cs=tinysrgb&w=600",
-      title: "New Arrivals",
-      description: "Check out the latest additions to our collection.",
+      backgroundImage: bg3,
+      title: "Seamless Connectivity",
+      description:
+        "Collaborate with industry leaders to achieve your digital goals through cutting-edge technology.",
     },
   ];
 
@@ -42,10 +44,12 @@ const Hero = () => {
       {slides.map((slide, index) => (
         <div key={index} className="hero-slide">
           <div
+            className="slide-background"
             style={{
               backgroundImage: `url(${slide.backgroundImage})`,
             }}
           >
+            <div className="slide-overlay"></div>
             <div className="slide-content">
               <h1>{slide.title}</h1>
               <p>{slide.description}</p>
