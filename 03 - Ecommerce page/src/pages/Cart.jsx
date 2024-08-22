@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FaPlus, FaMinus, FaTrashAlt } from "react-icons/fa";
 import { toast } from "react-toastify";
 import { db } from "../../firebase";
-import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import "../css/Cart.css";
 
 function Cart({ user }) {
@@ -36,7 +36,7 @@ function Cart({ user }) {
     if (user && user.uid) {
       try {
         const userCartRef = doc(db, "carts", user.uid);
-        await updateDoc(userCartRef, { items: updatedCart });
+        await setDoc(userCartRef, { items: updatedCart }, { merge: true });
       } catch (error) {
         console.error("Error updating cart in Firestore: ", error);
         toast.error("Failed to update cart");
@@ -80,7 +80,7 @@ function Cart({ user }) {
     <div className="cart-container">
       {cart.length === 0 ? (
         <h2 style={{ textAlign: "center", marginBlock: "8rem" }}>
-          No products added
+          Your cart is empty
         </h2>
       ) : (
         <>

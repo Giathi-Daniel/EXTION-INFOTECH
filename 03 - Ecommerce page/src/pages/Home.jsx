@@ -18,6 +18,7 @@ import phone from "../assets/categories/smartphones.png";
 import tv from "../assets/categories/tv-audio.png";
 import laptop from "../assets/categories/laptops.png";
 import r1 from "../assets/1.png";
+import watch from "../assets/watch.png";
 
 const Home = () => {
   const [productsOne, setProductsOne] = useState([]);
@@ -174,7 +175,7 @@ const Home = () => {
                   {Array.from({ length: 5 }, (_, index) => {
                     const ratingValue = index + 0.5;
                     return (
-                      <span key={index}>
+                      <span key={`${product.id}-${index}`}>
                         {product.rating >= index + 1 ? (
                           <FaStar className="icon" />
                         ) : product.rating >= ratingValue ? (
@@ -216,7 +217,7 @@ const Home = () => {
             </button>
           </div>
           <img
-            src="https://m.media-amazon.com/images/I/81cnleCCA+L._AC_SX300_SY300_.jpg"
+            src={watch}
             alt="military watch"
           />
         </div>

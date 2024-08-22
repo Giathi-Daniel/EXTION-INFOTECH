@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -18,6 +18,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Cart from "./pages/Cart";
 import PrivateRoute from "./components/PrivateRoute";
 import Profile from "./pages/Profile";
+import { getAuth } from "firebase/auth";
 
 const useShowFooter = () => {
   const location = useLocation();
@@ -26,13 +27,28 @@ const useShowFooter = () => {
 };
 
 function App() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const auth = getAuth();
+    const currentUser = auth.currentUser;
+    if (currentUser) {
+      set({
+        uid: currentUser.uid,
+        name: currentUser.displayName,
+        email: currentUser.email,
+        photoURL: currentUser.photoURL,
+      });
+    }
+  }, []);
+
   return (
     <Router>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/cart" element={<PrivateRoute />}>
-          <Route path="/cart" element={<Cart />} />
+          <Route path="/cart" element={<Cart user={user} />} />
         </Route>
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />

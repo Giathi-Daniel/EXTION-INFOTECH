@@ -13,10 +13,6 @@ html {
 }
 
 :root {
-    --container-width-lg: 80%;
-    --container-width-md: 94%;
-    --container-width-sm: 96%;
-
     --transition: all 400ms ease;
 }
 
